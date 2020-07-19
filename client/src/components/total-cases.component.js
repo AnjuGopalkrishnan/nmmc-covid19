@@ -36,6 +36,19 @@ export default class TotalCaseBox extends Component {
       <div style={{ "font-size": "20px" }}>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
         <CardDeck>
+        <Card
+            bg='danger'
+            text='white'
+            style={{ width: '18rem' }}
+            className="mb-2"
+          >
+            <Card.Header>Confirmed</Card.Header>
+            <Card.Body>
+              <Card.Title> {this.state.totals ? this.state.totals[0].totalPosiive : ""} <span style={{ paddingLeft: "100px", opacity: 0.9 }}><img src={positiveIcon} /></span> </Card.Title>
+
+            </Card.Body>
+          </Card>
+
           <Card
             bg='success'
             text='white'
@@ -50,27 +63,16 @@ export default class TotalCaseBox extends Component {
             </Card.Body>
           </Card>
 
-          <Card
-            bg='info'
-            text='white'
-            style={{ width: '18rem' }}
-            className="mb-2"
-          >
-            <Card.Header>Positive</Card.Header>
-            <Card.Body>
-              <Card.Title> {this.state.totals ? this.state.totals[0].totalPosiive : ""} <span style={{ paddingLeft: "100px", opacity: 0.9 }}><img src={positiveIcon} /></span> </Card.Title>
-
-            </Card.Body>
-          </Card>
+          
         </CardDeck>
         <CardDeck>
           <Card
-            bg='danger'
+          bg='info'
             text='white'
             style={{ width: '18rem' }}
             className="mb-2"
           >
-            <Card.Header>Active</Card.Header>
+            <Card.Header>Recovering</Card.Header>
             <Card.Body>
               <Card.Title> {this.state.totals ? this.state.totals[0].totalPosiive - this.state.totals[0].totalRecovered : ""} <span style={{ paddingLeft: "100px", opacity: 0.9 }}><img src={activeIcon} /></span> </Card.Title>
             </Card.Body>
