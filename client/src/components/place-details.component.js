@@ -62,7 +62,7 @@ export default class SummaryData extends Component {
     }
     return (
       <div>
-        <p align="center"><b>Daily data </b>(Cases on <b>{this.state.date ? this.getFormattedDate(this.state.date) : ""}</b>) </p>
+        <p align="center"><b><i class="fa fa-calendar" aria-hidden="true"></i>  Daily cases ({this.state.date ? this.getFormattedDate(this.state.date) : ""})</b> </p>
 
         <Table responsive borderless striped hover>
           <thead>

@@ -48,8 +48,8 @@ export default class SummaryData extends Component {
         <div class="col-md-6">
           <TotalCases icon="" count="" name="Total Positive" />
 
-          <div style={{ width: "60%", marginLeft: "15%" }} ><font size="1" color={'#17a2b8'}>Positive cases trend</font> <LineChart data={data} color={'#17a2b8'} /></div>
-          <div style={{ width: "60%", marginLeft: "15%" }} ><font size="1" color={'#28a745'}>Recovery trend</font><LineChart data={data1} color={'#28a745'} /></div>
+          <div style={{ width: "60%", marginLeft: "15%" }} ><font size="1" color={'#17a2b8'}>Confirmed</font> <LineChart data={data} color={'#17a2b8'} /></div>
+          <div style={{ width: "60%", marginLeft: "15%" }} ><font size="1" color={'#28a745'}>Recovered</font><LineChart data={data1} color={'#28a745'} /></div>
 
         </div>
         <div class="col-md-6">
