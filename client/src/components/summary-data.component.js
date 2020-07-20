@@ -28,8 +28,7 @@ export default class SummaryData extends Component {
 
   render() {
     return (
-
-      <div class="modal-body row">
+      <div class="modal-body row" >
         <div class="col-md-6">
           <TotalCases icon="" count="" name="Total Positive" />
         </div>
@@ -40,7 +39,6 @@ export default class SummaryData extends Component {
           <Trends dailyTotal={this.state.dailyTotal}/>
         </div>
       </div>
-
     )
   }
 } 

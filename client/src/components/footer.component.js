@@ -17,8 +17,8 @@ export default class Footer extends Component {
 
     var phantom = {
       display: 'block',
-      padding: '20px',
-      height: '60px',
+      padding: '10px',
+      height: '30px',
       width: '100%',
     }
     return (
