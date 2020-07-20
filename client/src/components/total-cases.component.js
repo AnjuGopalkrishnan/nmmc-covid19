@@ -5,7 +5,7 @@ import desceaseIcon from '../icon/skull.png';
 import positiveIcon from '../icon/microscope.png';
 import recoverIcon from '../icon/shield.png';
 import activeIcon from '../icon/first-aid-kit.png';
-
+import PieChartCustom from './Piechart.component';
 
 export default class TotalCaseBox extends Component {
   constructor(props) {
@@ -31,16 +31,18 @@ export default class TotalCaseBox extends Component {
   }
 
   render() {
-    var options = { weekday: 'short', year: 'numeric', month: 'short', day: 'numeric', timeZoneName:'short', hour :'2-digit', minute:'2-digit' };
+    var options = { year: 'numeric', month: 'short', day: 'numeric', hour: '2-digit', minute: '2-digit' };
     return (
       <div style={{ "font-size": "20px" }}>
 
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+        <div style={{ "font-size": "15px" }}><i class="fa fa-clock-o" aria-hidden="true"></i>  Last updated {this.state.totals ? new Date(this.state.totals[0].updatedAt).toLocaleString("en-IN", options) : ""}</div>
+        <br />
         <CardDeck>
-        <Card
+          <Card
             bg='danger'
             text='white'
-            style={{ width: '18rem', height:'8rem' }}
+            style={{ width: '18rem', height: '8rem' }}
             className="mb-2"
           >
             <Card.Header>Confirmed</Card.Header>
@@ -53,7 +55,7 @@ export default class TotalCaseBox extends Component {
           <Card
             bg='success'
             text='white'
-            style={{ width: '18rem', height:'8rem' }}
+            style={{ width: '18rem', height: '8rem' }}
             className="mb-2"
           >
             <Card.Header>Recovered</Card.Header>
@@ -64,13 +66,13 @@ export default class TotalCaseBox extends Component {
             </Card.Body>
           </Card>
 
-          
+
         </CardDeck>
         <CardDeck>
           <Card
-          bg='info'
+            bg='info'
             text='white'
-            style={{ width: '18rem', height:'8rem' }}
+            style={{ width: '18rem', height: '8rem' }}
             className="mb-2"
           >
             <Card.Header>Recovering</Card.Header>
@@ -82,7 +84,7 @@ export default class TotalCaseBox extends Component {
           <Card
             bg='secondary'
             text='white'
-            style={{ width: '18rem', height:'8rem' }}
+            style={{ width: '18rem', height: '8rem' }}
             className="mb-2"
           >
             <Card.Header>Deceased</Card.Header>
@@ -92,8 +94,11 @@ export default class TotalCaseBox extends Component {
             </Card.Body>
           </Card>
         </CardDeck>
-        <div align="right" style={{ "font-size": "12px" }}><i class="fa fa-clock-o" aria-hidden="true"></i>  Last updated {this.state.totals ? new Date(this.state.totals[0].updatedAt).toLocaleString("en-IN",options) : ""}</div>
-
+        {this.state.totals ?
+          <div height="200px">
+            <PieChartCustom totals={this.state.totals} />
+          </div>
+          : <div />}
       </div>
 
     )
