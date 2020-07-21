@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Nav, Navbar, NavDropdown } from 'react-bootstrap'
+import { Nav, Navbar } from 'react-bootstrap'
 import { Link } from 'react-router-dom';
 
 export default class NavbarCustom extends Component {
@@ -15,6 +15,9 @@ export default class NavbarCustom extends Component {
               <ul className="navbar-nav mr-auto">
                 <li className="navbar-item">
                   <Link to="/" className="nav-link">Dashboard</Link>
+                </li>
+                <li className="navbar-item">
+                  <Link to="/hotspots" className="nav-link">Hotspots</Link>
                 </li>
               </ul>
             </div>
