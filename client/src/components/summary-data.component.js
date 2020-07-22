@@ -3,8 +3,24 @@ import TotalCases from './total-cases.component';
 import PlaceDetails from './place-details.component';
 import axios from 'axios';
 import Trends from './trends.component';
+import countapi from 'countapi-js';
+
+
+countapi.hit('covidnmc.herokuapp.com', 'visit').then((result) => {
+  const hits = {
+    hits: result.value
+  }
+  axios.post('/cases/hits', hits)
+    .then(res => {
+      console.log("done")
+    })
+    .catch((error) => {
+      console.log(error);
+    });
+});
 
 export default class SummaryData extends Component {
+  
   constructor(props) {
     super(props);
     this.state = {
@@ -13,6 +29,7 @@ export default class SummaryData extends Component {
   }
 
   componentDidMount() {
+    
     axios.get('/cases/totalDaily')
       .then(response => {
         if (response.data.length > 0) {

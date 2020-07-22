@@ -1,6 +1,6 @@
 const router = require('express').Router();
 let Cases = require('../models/daily-count.model');
-let Places = require('../models/places.model');
+let Visits = require('../models/visits.model');
 let Total = require('../models/total-count.model');
 let DailyTotal = require('../models/total-count-daily.model');
 
@@ -81,17 +81,6 @@ router.route('/addDailyTotal').post((req, res) => {
     .catch(err => res.status(400).json('Error: ' + err));
 });
 
-router.route('/insert').post((req, res) => {
-    
-    const newPlace = new Places({
-        name:req.body.name
-    });
-
-    newPlace.save()
-    .then(() => res.json('Place added!'))
-    .catch(err => res.status(400).json('Error: ' + err));
-});
-
 router.route('/totaladd').post((req, res) => {
     
     const total = new Total({
@@ -110,5 +99,17 @@ router.route('/today').get((req, res) => {
         .then(cases => res.json(cases))
         .catch(err => res.status(400).json('Error: ' + err));
 });
+
+router.route('/hits').post((req, res) => {   
+    Visits.update({},{ hits : req.body.hits }, 
+    {upsert: true},function(err, response) {
+    if (err) {
+        res.status(400).json('Error: ' + err);
+    } else {
+        res.json('Hits updated!')
+    }
+    });
+});
+
 
 module.exports = router;
