@@ -14,7 +14,7 @@ export default class PieChartCustom extends PureComponent {
 
     render() {
         const data = [
-            { name: 'Recovering', value: this.props.totals[0].totalPosiive - this.props.totals[0].totalRecovered },
+            { name: 'Recovering', value: this.props.totals[0].totalPosiive - this.props.totals[0].totalRecovered - this.props.totals[0].totalDeceased},
             { name: 'Recovered', value: this.props.totals[0].totalRecovered },
             { name: 'Deceased', value: this.props.totals[0].totalDeceased }
         ];

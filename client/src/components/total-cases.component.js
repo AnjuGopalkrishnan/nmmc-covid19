@@ -77,7 +77,7 @@ export default class TotalCaseBox extends Component {
           >
             <Card.Header>Recovering</Card.Header>
             <Card.Body>
-              <Card.Title> {this.state.totals ? this.state.totals[0].totalPosiive - this.state.totals[0].totalRecovered : ""} <span style={{ float:"right", opacity: 0.9 }}><img src={activeIcon} /></span> </Card.Title>
+              <Card.Title> {this.state.totals ? this.state.totals[0].totalPosiive - this.state.totals[0].totalRecovered - this.state.totals[0].totalDeceased : ""} <span style={{ float:"right", opacity: 0.9 }}><img src={activeIcon} /></span> </Card.Title>
             </Card.Body>
           </Card>
 
