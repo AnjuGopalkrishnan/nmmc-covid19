@@ -1,28 +1,10 @@
 import React, { Component } from 'react';
 import Table from 'react-bootstrap/Table'
-import axios from 'axios';
+import PieChartCustom from './Piechart.component';
 
 export default class SummaryData extends Component {
   constructor(props) {
     super(props);
-    this.state = {
-      caseList: '',
-      date: null
-    }
-
-  }
-
-  componentDidMount() {
-    axios.get('/cases/today')
-      .then(response => {
-          this.setState({
-            caseList: response.data,
-            date: response.data[0].date
-          })
-      })
-      .catch((error) => {
-        console.log(error);
-      })
   }
   
   getFormattedDate(d) {
@@ -34,8 +16,8 @@ export default class SummaryData extends Component {
   }
 
   renderTableData() {
-    if (this.state.caseList) {
-      return this.state.caseList[0].placesCount.map((placeData, index) => {
+    if (this.props.caseList) {
+      return this.props.caseList[0].placesCount.map((placeData, index) => {
         const { placeName, Recovered, Positive } = placeData //destructuring
         return (
           <tr key={index + 1}>
@@ -52,8 +34,8 @@ export default class SummaryData extends Component {
   render() {
     let totalRecovered = 0;
     let totalPositive = 0;
-    if (this.state.caseList) {
-      this.state.caseList[0].placesCount.forEach(element => {
+    if (this.props.caseList) {
+      this.props.caseList[0].placesCount.forEach(element => {
 
         totalRecovered = totalRecovered + element.Recovered;
         totalPositive = totalPositive + element.Positive;
@@ -62,7 +44,7 @@ export default class SummaryData extends Component {
     }
     return (
       <div>
-        <p align="center"><b><i class="fa fa-calendar" aria-hidden="true"></i>  Daily cases ({this.state.date ? this.getFormattedDate(this.state.date) : ""})</b> </p>
+        <p align="center"><b><i class="fa fa-calendar" aria-hidden="true"></i>  Daily cases ({this.props.caseList ? this.getFormattedDate(this.props.caseList[0].date) : ""})</b> </p>
 
         <Table responsive borderless striped hover>
           <thead>
@@ -86,6 +68,12 @@ export default class SummaryData extends Component {
 
 
         </Table>
+
+        {this.props.totals ?
+          <div style={{overflow: "auto"}}>
+            <PieChartCustom totals={this.props.totals} />
+          </div>
+          : <div />}
       </div>
     )
   }
