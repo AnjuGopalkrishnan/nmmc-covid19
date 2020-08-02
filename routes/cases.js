@@ -10,8 +10,6 @@ router.route('/').get((req, res) => {
         .catch(err => res.status(400).json('Error: ' + err));
 });
 
-
-
 router.route('/total').get((req, res) => {
     Total.find()
         .then(cases => res.json(cases))
@@ -19,7 +17,7 @@ router.route('/total').get((req, res) => {
 });
 
 router.route('/totalDaily').get((req, res) => {
-    DailyTotal.find()
+    DailyTotal.find().sort({"date": 1})
         .then(cases => res.json(cases))
         .catch(err => res.status(400).json('Error: ' + err));
 });
@@ -27,6 +25,7 @@ router.route('/totalDaily').get((req, res) => {
 router.route('/add').post((req, res) => {
     const date = req.body.date;
     const placesCount = req.body.placesCount;
+    const dailyDeceased = req.body.deceasedToday;
     var dailytotalPosiive=0;
     var dailytotalRecovered=0;
     req.body.placesCount.forEach(element => {
@@ -47,7 +46,8 @@ router.route('/add').post((req, res) => {
     const dailytotal = new DailyTotal({
         date,
         dailytotalPosiive,
-        dailytotalRecovered
+        dailytotalRecovered,
+        dailyDeceased
     });
     dailytotal.save()
     .then(() => res.json('Daily total added!'))
