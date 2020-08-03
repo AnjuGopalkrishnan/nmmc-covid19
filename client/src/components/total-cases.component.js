@@ -120,7 +120,7 @@ export default class TotalCaseBox extends Component {
               <Card.Title>   
                 {this.props.totals ? this.props.totals[0].totalDeceased : ""} 
                 <span style={{ float:"right", opacity: 0.9 }}><img src={desceaseIcon} /></span>
-                <small style={{float:"right", paddingRight:"30px", paddingTop:"5px"}}>{riseDropIconPosDec}&nbsp;{lastTwoDays.length > 0 ? lastTwoDays[1].dailyDeceased : ""}</small>
+                <small style={{float:"right", paddingRight:"35px", paddingTop:"5px"}}>{riseDropIconPosDec}&nbsp;{lastTwoDays.length > 0 ? lastTwoDays[1].dailyDeceased : ""}</small>
               </Card.Title>
             </Card.Body>
           </Card>
