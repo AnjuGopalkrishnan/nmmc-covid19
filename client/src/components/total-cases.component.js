@@ -104,7 +104,6 @@ export default class TotalCaseBox extends Component {
               <Card.Title> 
                 {this.props.totals ? this.props.totals[0].totalPosiive - this.props.totals[0].totalRecovered - this.props.totals[0].totalDeceased : ""} 
                 <span style={{ float:"right", opacity: 0.9 }}><img src={activeIcon} /></span> 
-                <small style={{float:"right", paddingRight:"15px", paddingTop:"5px"}}>{riseDropIconPosRecn}&nbsp;{todayRecovering}</small>
               </Card.Title>
             </Card.Body>
           </Card>
