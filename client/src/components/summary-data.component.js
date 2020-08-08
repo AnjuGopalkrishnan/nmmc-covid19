@@ -72,13 +72,13 @@ export default class SummaryData extends Component {
     return (
       <div class="modal-body row" >
         <div class="col-md-6">
-          <TotalCases icon="" count="" name="Total Positive" totals={this.state.totals} dailyRise={this.state.dailyTotal}/>
+          <TotalCases icon="" count="" name="Total Positive" totals={this.state.totals}/>
           <br />
           <MapComponent caseList={this.state.caseList ? this.state.caseList[0].placesCount : ""} />
 
         </div>
         <div class="col-md-6">
-          <PlaceDetails caseList={this.state.caseList ? this.state.caseList : ""} totals={this.state.totals ? this.state.totals : ""} />
+          <PlaceDetails caseList={this.state.caseList ? this.state.caseList : ""} totals={this.state.totals ? this.state.totals : ""} dailyRise={this.state.dailyTotal}/>
 
         </div>
         <div style={{ width: "100%" }}>

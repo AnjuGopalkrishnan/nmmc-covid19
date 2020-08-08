@@ -32,7 +32,7 @@ export default class SummaryData extends Component {
   }
 
   render() {
-    let totalRecovered = 0;
+    /*let totalRecovered = 0;
     let totalPositive = 0;
     if (this.props.caseList) {
       this.props.caseList[0].placesCount.forEach(element => {
@@ -41,12 +41,14 @@ export default class SummaryData extends Component {
         totalPositive = totalPositive + element.Positive;
 
       });
-    }
+    }*/
+    let riseToday = this.props.dailyRise.slice(-1);
+
     return (
       <div>
         <p align="center"><b><i class="fa fa-calendar" aria-hidden="true"></i>  Daily cases ({this.props.caseList ? this.getFormattedDate(this.props.caseList[0].date) : ""})</b> </p>
-
-        <Table responsive borderless striped hover>
+        {riseToday.length > 0 ?
+        <Table responsive borderless striped hover >
           <thead>
             <tr>
               <th></th>
@@ -60,15 +62,18 @@ export default class SummaryData extends Component {
             <tr>
               <td></td>
               <td><b>TOTAL</b></td>
-              <td><b>{totalRecovered}</b></td>
-              <td><b>{totalPositive}</b></td>
+              <td style={{color:"green"}}><b><i class="fa fa-level-up"></i> {riseToday[0].dailytotalRecovered}</b></td>
+              <td style={{color:"red"}}><b><i class="fa fa-level-up"></i> {riseToday[0].dailytotalPosiive}</b></td>
+            </tr>
+            <tr>
+              <td></td>
+              <td><b>Deceased today</b></td>
+              <td colspan="2" style={{color:"gray"}}><b><i class="fa fa-level-up"></i> {riseToday[0].dailyDeceased}</b></td>
             </tr>
           </tbody>
-
-
-
         </Table>
-
+        : <div/>
+        }
         {this.props.totals ?
           <div style={{overflow: "auto"}}>
             <PieChartCustom totals={this.props.totals} />
