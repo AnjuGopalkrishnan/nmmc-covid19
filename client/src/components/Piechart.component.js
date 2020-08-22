@@ -63,12 +63,12 @@ export default class PieChartCustom extends PureComponent {
         };
 
         return (
-            <PieChart width={395} height={350}>
+            <PieChart width={410} height={350}>
                 <Pie
                     activeIndex={this.state.activeIndex}
                     activeShape={renderActiveShape}
                     data={data}
-                    cx={190}
+                    cx={200}
                     cy={150}
                     innerRadius={60}
                     outerRadius={95}
