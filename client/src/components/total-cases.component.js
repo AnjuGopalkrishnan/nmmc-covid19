@@ -11,8 +11,6 @@ export default class TotalCaseBox extends Component {
     
     return (
       <div style={{ "font-size": "19px" }}>
-
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
         <div style={{ "font-size": "15px", alignItems:"center" }}><i class="fa fa-clock-o" aria-hidden="true"></i>  Last updated {this.props.totals ? new Date(this.props.totals[0].updatedAt).toLocaleString("en-IN", options) : ""}</div>
         <br />
         <CardDeck style={{display: "flex"}}>

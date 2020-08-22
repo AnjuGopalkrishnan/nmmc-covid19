@@ -19,6 +19,9 @@ export default class NavbarCustom extends Component {
                 <li className="navbar-item">
                   <Link to="/hotspots" className="nav-link">Hotspots</Link>
                 </li>
+                <li className="navbar-item">
+                  <Link to="/about" className="nav-link">About</Link>
+                </li>
               </ul>
             </div>
           </Nav>
