@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Route} from "react-router-dom";
 
 import NavbarCustom from "./components/navbar.component";
 import SummaryData from "./components/summary-data.component";
+import Hospitals from "./components/hospitals.component";
 import Hotspots from "./components/hotspots.component";
 import About from "./components/about.component";
 
@@ -14,6 +15,7 @@ function App() {
       <NavbarCustom />
       <Route path="/" exact component={SummaryData} />
       <Route path="/edit/:id" component={SummaryData} />
+      <Route path="/hospitals" component={Hospitals} />
       <Route path="/hotspots" component={Hotspots} />
       <Route path="/about" component={About} />
       </div>
