@@ -139,12 +139,11 @@ class Hospitals extends Component {
           </Accordion.Collapse>
         </Card>
         <br />
-        <p>Dedicated COVID Hospitals (DCH) : Treatment of corona positive individuals with severe symptoms
-      <br />Dedicated COVID Health Centers (DCHC) : Treatment of moderately symptomatic corona positive individuals
-      <br />COVID Care Centers (CCC) : For patients with mild symptoms and asymptomatic</p>
-
-  Please visit <a href="http://nmmchealthfacilities.com/HospitalInfo/showhospitalist" target="_blank">NMMC Health facilites website</a> to get real-time hospital beds/ICU/Ventilator availability
-        <br /><br /><small><i class="fa fa-lightbulb-o" /> Click on place name to see hospital list</small>
+        Please visit <a href="http://nmmchealthfacilities.com/HospitalInfo/showhospitalist" target="_blank">NMMC Health facilites website</a> to get real-time hospital beds/ICU/Ventilator availability
+      <br/><br/><p>Dedicated COVID Hospitals (DCH) : Treatment of corona positive individuals with severe symptoms
+      <br /><br/>Dedicated COVID Health Centers (DCHC) : Treatment of moderately symptomatic corona positive individuals
+      <br /><br/>COVID Care Centers (CCC) : For patients with mild symptoms and asymptomatic</p>
+      <small><i class="fa fa-lightbulb-o" /> Click on place name to see hospital list</small>
       </Accordion>
     );
   }
