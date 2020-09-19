@@ -7,7 +7,7 @@ class Hospitals extends Component {
 
     return (
       <Accordion defaultActiveKey="0">
-        <h5 style={{ padding: "10px", textAlign: "-webkit-center" }}>Navi Mumbai Covid-19 Hospitals and Care centres </h5>
+        <h5 style={{ padding: "20px", textAlign: "-webkit-center" }}>Navi Mumbai Covid-19 Hospitals and Care centres </h5>
         <Card>
           <Accordion.Toggle as={Card.Header} eventKey="0">
             BELAPUR
