@@ -32,7 +32,7 @@ class MapComponent extends Component {
     return (
       <div>
         <Map
-          style={{ height: "480px", width: "100%" }}
+          style={{ height: "650px", width: "100%" }}
           zoom={1}
           center={[centerLat, centerLong]}
           bounds={[

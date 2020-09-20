@@ -7,6 +7,7 @@ import SummaryData from "./components/summary-data.component";
 import Hospitals from "./components/hospitals.component";
 import Hotspots from "./components/hotspots.component";
 import About from "./components/about.component";
+import Trends from "./components/trends.component";
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
       <Route path="/edit/:id" component={SummaryData} />
       <Route path="/hospitals" component={Hospitals} />
       <Route path="/hotspots" component={Hotspots} />
+      <Route path="/trends" component={Trends} />
       <Route path="/about" component={About} />
       </div>
     </Router>

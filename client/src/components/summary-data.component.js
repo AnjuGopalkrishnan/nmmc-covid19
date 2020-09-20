@@ -2,9 +2,11 @@ import React, { Component } from 'react';
 import TotalCases from './total-cases.component';
 import PlaceDetails from './place-details.component';
 import axios from 'axios';
-import Trends from './trends.component';
 import countapi from 'countapi-js';
-import MapComponent from "./map.component";
+import PlacewiseTotals from './placewise-totals.component';
+import Info from './info.component';
+import { Link } from 'react-router-dom';
+import Button from 'react-bootstrap/Button'
 
 countapi.hit('covidnmc.herokuapp.com', 'visit').then((result) => {
   const hits = {
@@ -74,15 +76,35 @@ export default class SummaryData extends Component {
         <div class="col-md-6">
           <TotalCases icon="" count="" name="Total Positive" totals={this.state.totals}/>
           <br />
-          <MapComponent caseList={this.state.caseList ? this.state.caseList[0].placesCount : ""} />
-
         </div>
         <div class="col-md-6">
-          <PlaceDetails caseList={this.state.caseList ? this.state.caseList : ""} totals={this.state.totals ? this.state.totals : ""} dailyRise={this.state.dailyTotal}/>
-
+          <br/>
+          <Info caseList={this.state.caseList ? this.state.caseList : ""} dailyRise={this.state.dailyTotal}/>
         </div>
-        <div style={{ width: "100%" }}>
-          <Trends dailyTotal={this.state.dailyTotal} />
+        <div class="col-md-12">
+          <PlacewiseTotals caseList={this.state.caseList ? this.state.caseList : ""} />
+        </div>
+
+        <br/>
+        <div class="col-md-6" style={{ padding: "10px" }}>
+          <Link to='/hospitals'>
+            <Button variant="success" style={{ width: "100%", padding: "10px" }}>Click to view Health facilities</Button>
+          </Link>
+        </div>
+        <div class="col-md-6" style={{ padding: "10px" }}>
+          <Link to='/hotspots'>
+            <Button variant="danger" style={{ width: "100%", padding: "10px" }}>Click to view Containment zones</Button>
+          </Link>
+        </div>
+        <div class="col-md-6" style={{ padding: "10px" }}>
+          <Link to='/trends'>
+            <Button variant="info" style={{ width: "100%", padding: "10px" }}>Click for Trends and Analysis</Button>
+          </Link>
+        </div>
+        <div class="col-md-6" style={{ padding: "10px" }}>
+          <Link to='/about'>
+            <Button variant="secondary" style={{ width: "100%", padding: "10px" }}>Contact</Button>
+          </Link>
         </div>
       </div>
     )

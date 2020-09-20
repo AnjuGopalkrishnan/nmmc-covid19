@@ -3,6 +3,7 @@ let Cases = require('../models/daily-count.model');
 let Visits = require('../models/visits.model');
 let Total = require('../models/total-count.model');
 let DailyTotal = require('../models/total-count-daily.model');
+let PlacesTotal = require('../models/placewise-total-count.model');
 
 router.route('/').get((req, res) => {
     Cases.find()
@@ -22,6 +23,12 @@ router.route('/totalDaily').get((req, res) => {
         .catch(err => res.status(400).json('Error: ' + err));
 });
 
+router.route('/placeTotal').get((req, res) => {
+    PlacesTotal.find().sort({"date": 1})
+        .then(cases => res.json(cases))
+        .catch(err => res.status(400).json('Error: ' + err));
+});
+
 router.route('/add').post((req, res) => {
     const date = req.body.date;
     const placesCount = req.body.placesCount;
@@ -33,7 +40,7 @@ router.route('/add').post((req, res) => {
         dailytotalRecovered = dailytotalRecovered + element.Recovered;
     });
 
-    //add place-wise data
+    //add daily place-wise data
     const newCases = new Cases({
         date,
         placesCount
@@ -109,6 +116,20 @@ router.route('/hits').post((req, res) => {
         res.json('Hits updated!')
     }
     });
+});
+
+router.route('/add/placeTotal').post((req, res) => {
+    const date = req.body.date;
+    const placewiseTotal = req.body.placewiseTotal;
+
+    //add daily place-wise data
+    const totals = new PlacesTotal({
+        date,
+        placewiseTotal
+    });
+    totals.save()
+    .then(() => res.json('Place wise totals added !'))
+    .catch(err => res.status(400).json('Error: ' + err));
 });
 
 
