@@ -17,8 +17,8 @@ export default class Info extends Component {
           <tr><td>Total cured and discharged today</td><td><b>{recovery}</b></td></tr>
           <tr><td>Number of registered positive cases today</td><td><b>{positive}</b></td></tr>
           <tr><td>Total deceased today</td><td><b>{deceased}</b></td></tr>
-          <tr><td>Recovery Rate</td><td><b>{Math.ceil(recovery / positive * 100)}%</b></td></tr>
-          <tr><td>Deceased Rate</td><td><b>{Math.ceil(deceased / positive * 100)}%</b></td></tr>
+          <tr><td>Recovery Rate</td><td><b>{this.props.totals ? Math.round(this.props.totals[0].totalRecovered / this.props.totals[0].totalPosiive * 100) : 0}%</b></td></tr>
+          <tr><td>Deceased Rate</td><td><b>{this.props.totals ? Math.round(this.props.totals[0].totalDeceased / this.props.totals[0].totalPosiive * 100) : 0}%</b></td></tr>
         </tbody>
       </Table>
     );

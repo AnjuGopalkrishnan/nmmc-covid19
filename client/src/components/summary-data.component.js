@@ -79,7 +79,7 @@ export default class SummaryData extends Component {
         </div>
         <div class="col-md-6">
           <br/>
-          <Info caseList={this.state.caseList ? this.state.caseList : ""} dailyRise={this.state.dailyTotal}/>
+          <Info caseList={this.state.caseList ? this.state.caseList : ""} dailyRise={this.state.dailyTotal} totals={this.state.totals}/>
         </div>
         <div class="col-md-12">
           <PlacewiseTotals caseList={this.state.caseList ? this.state.caseList : ""} />
