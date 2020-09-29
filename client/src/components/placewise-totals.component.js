@@ -38,12 +38,12 @@ export default class PlacewiseTotals extends Component {
           <tr key={index + 1}>
             <td></td>
             <td>{placeName}</td>
+            <td style={{ color: "red" }}>{this.props.caseList ? this.props.caseList[0].placesCount[index].Positive : ""}</td>
+            <td style={{ color: "green" }}>{this.props.caseList ? this.props.caseList[0].placesCount[index].Recovered : ""}</td>
             <td>{totalPositive}</td>
             <td>{totalRecovered}</td>
             <td>{totalDeceased}</td>
             <td>{totalPositive - totalRecovered - totalDeceased < 0 ? 0 : totalPositive - totalRecovered - totalDeceased}</td>
-            <td style={{ color: "red" }}>{this.props.caseList ? this.props.caseList[0].placesCount[index].Positive : ""}</td>
-            <td style={{ color: "green" }}>{this.props.caseList ? this.props.caseList[0].placesCount[index].Recovered : ""}</td>
           </tr>
         )
       })
@@ -60,12 +60,12 @@ export default class PlacewiseTotals extends Component {
             <tr>
               <th></th>
               <th>Zones</th>
+              <th>Cases today</th>
+              <th>Recovery today</th>
               <th>Total Cases</th>
               <th>Total Recovered</th>
               <th>Total Deceased</th>
               <th>Total Active</th>
-              <th>Positive today</th>
-              <th>Recovered today</th>
             </tr>
           </thead>
           <tbody>
