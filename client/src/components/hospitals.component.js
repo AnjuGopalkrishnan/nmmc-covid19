@@ -35,6 +35,7 @@ class Hospitals extends Component {
               <ul><a href="https://sunshinehospital.org/" target="_blank">Sunshine Hospital</a></ul>
               <ul><a href="http://www.dypatilhospitals.com/" target="_blank">Dr. D. Y. Patil Hospital</a></ul>
               <ul><a href="https://www.justdial.com/Mumbai/Manak-Health-Care-Hospital-Near-Rajiv-Gandhi-Bridge-Sector-No-8-Nerul/022PG022553_BZDET" target="_blank">New Manak hospital</a></ul>
+              <ul><a href="https://www.justdial.com/Mumbai/Ojas-Nursing-Home-Behind-Mgm-School-L-Market-Phase-2-Sector-8-Nerul/022P8017580_BZDET" target="_blank">Ojas Hospital</a></ul>
               <ul><u>COVID Care Centers (CCC)</u></ul>
               <ul>Agri Koli Bhavan</ul>
               <ul>Nerul Multipurpose Hall</ul>
