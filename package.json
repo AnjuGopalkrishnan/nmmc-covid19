@@ -28,6 +28,6 @@
     "react-bootstrap": "^1.2.2",
     "react-leaflet": "^2.7.0",
     "react-router-dom": "^5.2.0",
-    "recharts": "^1.8.5"
+    "recharts": "^2.1.14"
   }
 }
